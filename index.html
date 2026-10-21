@@ -21,7 +21,7 @@ input,select,textarea{width:100%;padding:11px;border:2px solid #d8c8f5;border-ra
 .pop{position:fixed;inset:0;background:#0007;display:flex;align-items:center;justify-content:center;z-index:9}.pop>div{background:#fff;border-radius:24px;padding:28px;max-width:360px;text-align:center;animation:bn 1s infinite alternate}@keyframes bn{to{transform:translateY(-12px)}}
 table{width:100%;border-collapse:collapse;font-size:.9rem}td,th{padding:7px;border-bottom:1px solid #eee;text-align:left}th{background:#f0e7ff}.bar{height:10px;background:#eadcff;border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--t),var(--o))}
 .f{font-size:1.3em;font-weight:600}.ot{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:8px 0}.ot div{width:54px;height:54px;background:#f3d9a8;border:3px solid #c0702a;border-radius:12px;display:grid;place-items:center;font-size:1.6rem;cursor:pointer;transition:.15s}.ot div:hover{transform:scale(1.1)}.ot .tk{background:#ff8a3d}
-.fw{display:inline-block;text-align:center;margin:8px}.fw div{padding:8px 14px;border-radius:10px;color:#fff;font-size:.85rem}.fw b{font-size:1.5rem}.fw .pb{background:var(--o)}.fw .pn2{background:var(--p)}.fw .ln{height:5px;background:var(--d);padding:0;margin:4px 0}
+.fw{display:inline-block;text-align:center;margin:8px}.fw div{padding:8px 14px;border-radius:10px;color:#fff;font-size:.85rem}.fw b{font-size:1.5rem}.fw .pb{background:var(--o)}.fw .pnb{background:var(--p)}.fw .ln{height:5px;background:var(--d);padding:0;margin:4px 0}
 .mp{position:relative;aspect-ratio:2/1;background:linear-gradient(#bfe9ff,#d9f7d0);border-radius:18px;overflow:hidden;margin:10px 0}.nd{position:absolute;transform:translate(-50%,-50%);font-size:1.6rem;background:#fff;border-radius:50%;width:44px;height:44px;display:grid;place-items:center;box-shadow:0 3px 8px #0003}.nd.dn{background:#c8f7d4}.pn{position:absolute;transform:translate(-50%,-125%);font-size:2rem;transition:left 1s,top 1s;z-index:2}
 details{background:#f4ecff;border-radius:12px;padding:8px 12px;margin-bottom:10px}summary{cursor:pointer;font-weight:700}
 .ic{font-size:4rem}.ic span{display:inline-block;animation:wg 1.8s ease-in-out infinite}.ic span:nth-child(2){animation-delay:.3s}.ic span:nth-child(3){animation-delay:.6s}.st b{animation:wg 2.4s ease-in-out infinite}@keyframes wg{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-14px) rotate(10deg) scale(1.15)}}
@@ -63,12 +63,18 @@ html{font-size:clamp(15px,.55vw + 10px,24px)}main{max-width:min(1200px,96vw)}but
 @media(pointer:coarse){.mzr .dp{grid-template-columns:repeat(3,62px);grid-template-rows:repeat(3,62px)}}
 @media(max-width:640px){.mzr{gap:6px}.mzr .dp{grid-template-columns:repeat(3,40px);grid-template-rows:repeat(3,40px);gap:4px}.mzr .dp button{font-size:1.05rem}.pn2{font-size:1.1rem}.st .tt{font-size:.98rem}}
 
+
+/* ===== Teks kalimat/paragraf rata kiri-kanan (semua perangkat) ===== */
+main p,main li,.bx,.nts div,.ask,.sec .sb{text-align:justify;text-justify:inter-word;overflow-wrap:break-word}
+.ct p,.ex,.ex *:not(.exf),#cp,#cap{text-align:justify!important;text-justify:inter-word;text-align-last:center}
+.exf,.exf *{text-align:center!important;text-align-last:center}
+.hero p,.pop p,.ct h2,.ct h3{text-align:center}
+.ct .bx,.ask{text-align-last:left}
 /* ===== Kunci tampilan terang & perbaikan HP ===== */
 :root{color-scheme:light only}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%;color-scheme:light only;background:#efe4ff}
 @media(prefers-color-scheme:dark){:root,html,body{color-scheme:light only}body{color:var(--d)}}
 input,select,textarea{background:#fff;color:var(--d)}
-.mzr{touch-action:none}
 @media(max-width:640px){
 html{font-size:15px}
 body{overflow-x:hidden;min-height:100vh;min-height:100dvh;padding-bottom:env(safe-area-inset-bottom)}
@@ -80,8 +86,6 @@ main{padding:10px;padding-left:calc(10px + env(safe-area-inset-left));padding-ri
 .hero{padding:20px 6px}.hero h1{font-size:1.5rem}.ic{font-size:3rem}
 input,select,textarea{font-size:16px;padding:10px}
 button{min-height:44px;padding:10px 14px}
-main p,main li,.bx{text-align:left;hyphens:manual}
-.ct p,.ct h2,.ct h3,.hero p,.pop p{text-align:center}
 .grid{gap:10px}.st{padding:12px 8px}.st b{font-size:1.8rem}.st .tt{font-size:.95rem}.td{font-size:.72rem}
 .tabs{gap:6px}.tabs button{flex:1 1 calc(50% - 6px);padding:10px 6px;font-size:.88rem}
 .opt{padding:10px 12px}
@@ -102,6 +106,12 @@ table{font-size:.78rem}td,th{padding:5px}
 .ldw{gap:10px}
 .sec .hd{padding:10px 12px 10px 18px}
 }
+
+/* ===== Labirin: geser hanya lewat pion, area lain tetap bisa digulung ===== */
+.mz{touch-action:auto}
+.dp{touch-action:manipulation}
+.pn2{pointer-events:auto;touch-action:none;cursor:grab;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;animation:pl 1.4s ease-in-out infinite;filter:drop-shadow(0 0 5px #ff8a3d)}
+.pn2::after{content:'';position:absolute;inset:-15%}
 </style></head><body>
 <div class=fl style="top:12%;left:4%">🍕</div><div class=fl style="top:60%;right:5%;animation-delay:2s">🧭</div><div class=fl style="top:80%;left:10%;animation-delay:4s">⭐</div>
 <header><b>🍕 Petualangan Pecahan</b><span id=hr></span></header><main id=app></main>
@@ -171,7 +181,7 @@ const RK=()=>`<table><tr><th>Biasa</th><th>Perseratus</th><th>Desimal</th><th>Pe
 const PE=['👦','👧','🧒','👨','👩','🧑','👴','👵'];
 function pzS(n,t){let s='<svg viewBox="-125 -125 250 250" width=230>';for(let i=0;i<n;i++){const a=i/n*6.2832-1.5708,b=(i+1)/n*6.2832-1.5708,m=(a+b)/2,e=t.has(i),P=`M0 0L${100*Math.cos(a)} ${100*Math.sin(a)}A100 100 0 0 1 ${100*Math.cos(b)} ${100*Math.sin(b)}Z`,pp=`<path d="${P}" fill="#ffb347" stroke="#c0702a" stroke-width="3"/><circle cx="${60*Math.cos(m)}" cy="${60*Math.sin(m)}" r="7" fill="#d62828"/>`;
 if(e)s+=`<path d="${P}" fill="#f3e2bd" stroke="#d9b77a" stroke-width="2" stroke-dasharray="5"/><g transform="translate(${20*Math.cos(m)} ${20*Math.sin(m)})">${pp}<text x="${82*Math.cos(m)}" y="${82*Math.sin(m)}" font-size="22" text-anchor="middle" dy="8">😋</text></g>`;else s+=pp}return s+'</svg>'}
-function fw(a,b,la,lb){return`<div class=fw><div class=pb>${la}<br><b>${a}</b></div><div class=ln></div><div class=pn2>${lb}<br><b>${b}</b></div></div>`}
+function fw(a,b,la,lb){return`<div class=fw><div class=pb>${la}<br><b>${a}</b></div><div class=ln></div><div class=pnb>${lb}<br><b>${b}</b></div></div>`}
 const skema=()=>`<div class=ct><b>🔎 Skema contoh: ada yang makan</b><br>${pzS(8,new Set([0,1,2])).replace('width=230','width=150')}<div class=ot>${PE.map((e,i)=>`<div style="width:34px;height:34px;font-size:1.1rem" class="${i<3?'tk':''}">${i<3?'😋':e}</div>`).join('')}</div><p>Ada <b>8 orang</b> berbagi pizza (penyebut). <b>3 orang makan</b> (pembilang). Bagian pizza yang dimakan: ${F(3,8)}</p></div>`;
 function s0(){G.n=0;G.p={n:4,t:new Set()};$('#bd').innerHTML=`<div class=bx>🍕 Satu pizza dibagi untuk beberapa teman. Banyaknya <b>teman</b> menentukan banyaknya <b>potongan</b>. Ayo coba!</div><div class=bx id=skm></div><div id=pp2></div><div class=bx>📘 <b>Penyebut</b> (bawah) = banyak bagian yang sama besar (semua teman/potongan).<br><b>Pembilang</b> (atas) = banyak bagian yang diambil (teman yang makan).<br>Garis pecahan berarti pembagian. Syaratnya penyebut ≠ 0.</div>`;$('#bd').innerHTML=hl($('#bd').innerHTML);$('#skm').innerHTML=hl(skema());pp()}
 function pp(){const{n,t}=G.p;$('#pp2').innerHTML=`<p>Ada <b>${n} orang</b> berbagi satu pizza. <button class=g onclick=pc(-1)>➖ Teman</button> <button class=g onclick=pc(1)>➕ Teman</button></p><div style="text-align:center">${pzS(n,t)}</div><p style="text-align:center">Ketuk teman yang <b>makan</b> sepotong pizza:</p><div class=ot>${PE.slice(0,n).map((e,i)=>`<div class="${t.has(i)?'tk':''}" onclick=pt(${i})>${t.has(i)?'😋':e}</div>`).join('')}</div><div class=ct style="margin-top:12px">${fw(t.size,n,'Pembilang: yang makan','Penyebut: seluruh teman')}<p>Ada <b>${n} orang</b>, <b>${t.size} orang makan</b> → bagian yang dimakan:</p><div style="font-size:1.8rem">${F(t.size,n)}</div></div>`}
@@ -278,11 +288,11 @@ const RB=['Hebat, jawabanmu tepat!','Keren! Kamu makin jago pecahan!','Luar bias
 const MP=[[8,78],[26,42],[44,76],[61,32],[78,66],[92,22]],MI=['🏕️','🏝️','🌋','🏴‍☠️','🐉','💎'];
 const mpH=k=>`<div class=mp><svg viewBox="0 0 100 100" preserveAspectRatio=none style="position:absolute;inset:0;width:100%;height:100%"><polyline points="${MP.map(p=>p.join(',')).join(' ')}" fill=none stroke="#fff" stroke-width=1.5 stroke-dasharray="3 2"/></svg>${MP.map((p,i)=>`<div class="nd ${i<=k?'dn':''}" style="left:${p[0]}%;top:${p[1]}%">${MI[i]}</div>`).join('')}<div class=pn id=pn style="left:${MP[k][0]}%;top:${MP[k][1]}%">${PN()}</div></div>`;
 function quiz(L,t,g){G.k=0;G.L=L;G.t=t;G.r=g;G.ok=0;G.tr=0;G.redo=S.done>G.i;G.rsk=0;G.att=0;G.hint='';if(!G.redo){S.pts=S.pts||{};S.skor-=S.pts[G.i]||0;S.pts[G.i]=0}qn()}
-function qn(){const q=G.L[G.k],g=G.r,o=g?q[2]:q[1],gv=0;$('#bd').innerHTML=`<details><summary>📌 Rangkuman Hubungan Pecahan</summary>${RK()}</details>${g?mpH(G.k):`<div class=bar><i style="width:${G.k/G.L.length*100}%"></i></div>`}<h3>${g?q[0]+' · ':''}Soal ${G.k+1}/${G.L.length}</h3><p>${fx(g?q[1]:q[0])}</p>`+(g&&G.hint?`<div class=bx>🔎 <b>Petunjuk:</b> ${fx(G.hint)}</div>`:'')+(gv?`<div class=gv><b>📋 Angka yang muncul di soal</b> <small>(analisis dulu: ketuk angka yang kamu perlukan)</small><br>${q[4].map(x=>`<span onclick="this.classList.toggle('on');SND.tick()">${fx(x)}</span>`).join('')}</div>`:'')+(g?mzGen(o):o.map((x,i)=>`<button class=opt onclick=pk(${i},this)>${fx(x)}</button>`).join(''))+`<div id=fb></div>`;if(g){SND.go();stopRun();swp($('#mz').closest('.mzr'))}}
+function qn(){const q=G.L[G.k],g=G.r,o=g?q[2]:q[1],gv=0;$('#bd').innerHTML=`<details><summary>📌 Rangkuman Hubungan Pecahan</summary>${RK()}</details>${g?mpH(G.k):`<div class=bar><i style="width:${G.k/G.L.length*100}%"></i></div>`}<h3>${g?q[0]+' · ':''}Soal ${G.k+1}/${G.L.length}</h3><p>${fx(g?q[1]:q[0])}</p>`+(g&&G.hint?`<div class=bx>🔎 <b>Petunjuk:</b> ${fx(G.hint)}</div>`:'')+(gv?`<div class=gv><b>📋 Angka yang muncul di soal</b> <small>(analisis dulu: ketuk angka yang kamu perlukan)</small><br>${q[4].map(x=>`<span onclick="this.classList.toggle('on');SND.tick()">${fx(x)}</span>`).join('')}</div>`:'')+(g?mzGen(o):o.map((x,i)=>`<button class=opt onclick=pk(${i},this)>${fx(x)}</button>`).join(''))+`<div id=fb></div>`;if(g){SND.go();stopRun();swp($('#pn2'))}}
 function mkMaze(W,H){const c=Array.from({length:W*H},()=>({n:1,e:1,s:1,w:1})),par=Array(W*H).fill(-1),vis=new Set([0]),st=[0];while(st.length){const x=st[st.length-1],cx=x%W,cy=(x/W)|0,nb=[];if(cy>0&&!vis.has(x-W))nb.push([x-W,'n','s']);if(cx<W-1&&!vis.has(x+1))nb.push([x+1,'e','w']);if(cy<H-1&&!vis.has(x+W))nb.push([x+W,'s','n']);if(cx>0&&!vis.has(x-1))nb.push([x-1,'w','e']);if(!nb.length){st.pop();continue}const[y,a,b]=nb[Math.floor(Math.random()*nb.length)];c[x][a]=0;c[y][b]=0;par[y]=x;vis.add(y);st.push(y)}return{c,par}}
 function mzGen(o){const sm=window.matchMedia&&matchMedia('(max-width:640px)').matches,W=sm?6:8,H=sm?5:6;let M,P=[];for(let t=0;t<80;t++){M=mkMaze(W,H);const par=M.par,dep=i=>{let d=0;while(par[i]>=0){i=par[i];d++}return d},anc=(a,b)=>{while(par[b]>=0){b=par[b];if(b==a)return true}return false},idx=[...Array(W*H).keys()].filter(i=>i).sort((a,b)=>dep(b)-dep(a));for(const md of[3,2]){P=[];for(const i of idx){if(P.length>=o.length)break;if(P.every(j=>!anc(j,i)&&!anc(i,j)&&Math.abs(j%W-i%W)+Math.abs(((j/W)|0)-((i/W)|0))>=md))P.push(i)}if(P.length>=o.length)break}if(P.length>=o.length)break}
 P.sort(()=>Math.random()-.5);G.mz={W,H,c:M.c};G.mo=P;G.mp=[0,0];G.lock=0;
-return `<div class=bx>🧭 Gerakkan pion ${PN()} dengan <b>panah keyboard</b> (atau W A S D), <b>tombol panah</b> di samping labirin, atau <b>geser jarimu di area labirin</b> (geser cepat = meluncur sampai ujung lorong). Temukan huruf jawabanmu di labirin!</div><div class=lg>${o.map((x,i)=>`<span><b class=ob>${'ABCD'[i]}</b> ${fx(x)}</span>`).join('')}</div><div class=mzr><div class=mzw><div class=mz id=mz style="--W:${W}">${M.c.map((k,i)=>`<div class="mc${k.n?' n':''}${k.w?' w':''}">${P.includes(i)?`<b class=ob>${'ABCD'[P.indexOf(i)]}</b>`:''}</div>`).join('')}<div class=pn2 id=pn2 style="left:0;top:0">${PN()}</div></div></div><div class=dp><button class=u onpointerdown="hd(0,-1)" onpointerup=hs() onpointerleave=hs()>⬆️</button><button class=l onpointerdown="hd(-1,0)" onpointerup=hs() onpointerleave=hs()>⬅️</button><button class=r onpointerdown="hd(1,0)" onpointerup=hs() onpointerleave=hs()>➡️</button><button class=d onpointerdown="hd(0,1)" onpointerup=hs() onpointerleave=hs()>⬇️</button></div></div>`}
+return `<div class=bx>🧭 Gerakkan pion ${PN()} dengan <b>panah keyboard</b> (atau W A S D), <b>tombol panah</b> di samping labirin, atau <b>sentuh pionnya lalu geser</b> (geser cepat = meluncur sampai ujung lorong). Menyentuh bagian labirin lain hanya menggulung halaman. Temukan huruf jawabanmu di labirin!</div><div class=lg>${o.map((x,i)=>`<span><b class=ob>${'ABCD'[i]}</b> ${fx(x)}</span>`).join('')}</div><div class=mzr><div class=mzw><div class=mz id=mz style="--W:${W}">${M.c.map((k,i)=>`<div class="mc${k.n?' n':''}${k.w?' w':''}">${P.includes(i)?`<b class=ob>${'ABCD'[P.indexOf(i)]}</b>`:''}</div>`).join('')}<div class=pn2 id=pn2 style="left:0;top:0">${PN()}</div></div></div><div class=dp><button class=u onpointerdown="hd(0,-1)" onpointerup=hs() onpointerleave=hs() onpointercancel=hs()>⬆️</button><button class=l onpointerdown="hd(-1,0)" onpointerup=hs() onpointerleave=hs() onpointercancel=hs()>⬅️</button><button class=r onpointerdown="hd(1,0)" onpointerup=hs() onpointerleave=hs() onpointercancel=hs()>➡️</button><button class=d onpointerdown="hd(0,1)" onpointerup=hs() onpointerleave=hs() onpointercancel=hs()>⬇️</button></div></div>`}
 function mv(dx,dy){if(G.lock||!G.mz)return false;const{W,H,c}=G.mz;let[x,y]=G.mp;const k=c[y*W+x],dr=dx>0?'e':dx<0?'w':dy>0?'s':'n';if(k[dr]){SND.bump();return false}x+=dx;y+=dy;G.mp=[x,y];$('#pn2').style.left=x/W*100+'%';$('#pn2').style.top=y/H*100+'%';SND.walk(G.stp=(G.stp||0)+1);const o=G.mo.indexOf(y*W+x);if(o>=0){G.lock=1;hs();stopRun();pk(o);return false}return true}
 function stopRun(){clearInterval(G.run)}
 function runDir(dx,dy){stopRun();const go=()=>{if(!mv(dx,dy)){stopRun();return}const{W,c}=G.mz,k=c[G.mp[1]*W+G.mp[0]];if(['n','e','s','w'].filter(d=>!k[d]).length!=2)stopRun()};go();G.run=setInterval(go,110)}
