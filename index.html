@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="light only"><meta name="supported-color-schemes" content="light"><meta name="theme-color" content="#2d1b4e">
 <title>Petualangan Pecahan - Kelas VII</title>
 <style>
 :root{--p:#7c4dcc;--d:#2d1b4e;--o:#ff8a3d;--t:#1fb5a8;--bg:#f3ecff}
@@ -62,6 +62,46 @@ html{font-size:clamp(15px,.55vw + 10px,24px)}main{max-width:min(1200px,96vw)}but
 .mzr{display:flex;gap:12px;align-items:center;justify-content:center}.mzr .mzw{flex:1;min-width:0;margin:0}.mzr .dp{flex:none;margin:0;grid-template-columns:repeat(3,46px);grid-template-rows:repeat(3,46px)}.mzr .dp .d{grid-row:3}
 @media(pointer:coarse){.mzr .dp{grid-template-columns:repeat(3,62px);grid-template-rows:repeat(3,62px)}}
 @media(max-width:640px){.mzr{gap:6px}.mzr .dp{grid-template-columns:repeat(3,40px);grid-template-rows:repeat(3,40px);gap:4px}.mzr .dp button{font-size:1.05rem}.pn2{font-size:1.1rem}.st .tt{font-size:.98rem}}
+
+/* ===== Kunci tampilan terang & perbaikan HP ===== */
+:root{color-scheme:light only}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;color-scheme:light only;background:#efe4ff}
+@media(prefers-color-scheme:dark){:root,html,body{color-scheme:light only}body{color:var(--d)}}
+input,select,textarea{background:#fff;color:var(--d)}
+.mzr{touch-action:none}
+@media(max-width:640px){
+html{font-size:15px}
+body{overflow-x:hidden;min-height:100vh;min-height:100dvh;padding-bottom:env(safe-area-inset-bottom)}
+header{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:6px 10px;padding:8px 12px;padding-top:calc(8px + env(safe-area-inset-top));font-size:.9rem}
+#hr{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;font-size:.8rem}
+#hr button{min-height:32px;padding:4px 10px!important}
+main{padding:10px;padding-left:calc(10px + env(safe-area-inset-left));padding-right:calc(10px + env(safe-area-inset-right))}
+.card{padding:14px;border-radius:16px}
+.hero{padding:20px 6px}.hero h1{font-size:1.5rem}.ic{font-size:3rem}
+input,select,textarea{font-size:16px;padding:10px}
+button{min-height:44px;padding:10px 14px}
+main p,main li,.bx{text-align:left;hyphens:manual}
+.ct p,.ct h2,.ct h3,.hero p,.pop p{text-align:center}
+.grid{gap:10px}.st{padding:12px 8px}.st b{font-size:1.8rem}.st .tt{font-size:.95rem}.td{font-size:.72rem}
+.tabs{gap:6px}.tabs button{flex:1 1 calc(50% - 6px);padding:10px 6px;font-size:.88rem}
+.opt{padding:10px 12px}
+.ot{gap:5px}.ot div{width:42px;height:42px;font-size:1.3rem}
+.exf{font-size:1.35rem}
+table{font-size:.78rem}td,th{padding:5px}
+.pop>div{max-width:88vw;padding:16px}
+.mp{border-radius:14px}.nd{width:34px;height:34px;font-size:1.2rem}.pn{font-size:1.5rem}
+.mzr{flex-direction:column;gap:10px}
+.mzr .mzw{width:100%;max-width:100%;flex:none}
+.mzr .dp{grid-template-columns:repeat(3,56px);grid-template-rows:repeat(2,52px);gap:6px}
+.mzr .dp .d{grid-row:2}
+.mzr .dp button{font-size:1.25rem;min-height:0}
+.pn2{font-size:1.5rem}
+.mc .ob{font-size:.95rem}
+.lg span{padding:3px 8px;font-size:.88rem}
+.ld{font-size:.95rem;padding:8px 10px;max-width:100%}
+.ldw{gap:10px}
+.sec .hd{padding:10px 12px 10px 18px}
+}
 </style></head><body>
 <div class=fl style="top:12%;left:4%">🍕</div><div class=fl style="top:60%;right:5%;animation-delay:2s">🧭</div><div class=fl style="top:80%;left:10%;animation-delay:4s">⭐</div>
 <header><b>🍕 Petualangan Pecahan</b><span id=hr></span></header><main id=app></main>
@@ -229,24 +269,36 @@ const GM=[['🏝️ Pulau Pizza','Di suatu kelas, 3/5 siswa adalah perempuan. Ji
 ['🏴‍☠️ Kapal Bajak Laut','Nilai ulangan Dika 18 dari 24 soal benar. Nilainya dalam persen adalah...',['60%','70%','75%','80%'],2,'18/24 disederhanakan menjadi 3/4. 3/4 = 75/100 = 75%.'],
 ['🐉 Gua Naga','Barang Rp80.000. Toko A diskon 30%, Toko B diskon 1/4. Toko mana yang lebih murah dan berapa harganya?',['Toko A, Rp56.000','Toko B, Rp60.000','Toko A, Rp24.000','Toko B, Rp20.000'],0,'Toko A: bayar 70% × 80.000 = 56.000. Toko B: diskon 1/4 = 25%, bayar 75% × 80.000 = 60.000. Jadi Toko A lebih murah.'],
 ['💎 Harta Karun','Dari 40 siswa, 3/8 suka bola, 25% suka basket, sisanya suka voli. Berapa siswa yang suka voli?',['10','12','15','18'],2,'Bola = 3/8 × 40 = 15. Basket = 25% × 40 = 10. Voli = 40 − 15 − 10 = 15 siswa.']];
+const GH=[['Cari dulu bagian siswa laki-laki: 1 dikurangi 3/5 sama dengan berapa bagian?','Jika bagian laki-laki itu sama dengan 12 orang, cari nilai 1/5 dahulu (bagi 12 sesuai pembilangnya), lalu kalikan untuk seluruh bagian (5/5).'],
+['Samakan dulu bentuk semua bilangan, misalnya menjadi desimal atau persen.','Ingat: 2/5 dapat dijadikan per 10 atau per 100 (kalikan atas dan bawah), sedangkan 43% artinya 43 per 100. Bandingkan sampai dua angka di belakang koma.'],
+['Tulis nilainya sebagai pecahan: banyak soal benar dibagi banyak seluruh soal.','Sederhanakan 18/24 dengan membagi atas dan bawah memakai bilangan yang sama, lalu ubah ke penyebut 100.'],
+['Ubah diskon 1/4 menjadi persen dulu supaya bisa dibandingkan dengan diskon 30%.','Harga yang dibayar = 100% dikurangi diskon, lalu kalikan dengan Rp80.000. Bandingkan kedua toko.'],
+['Hitung siswa yang suka bola dan yang suka basket secara terpisah: pecahan atau persennya dikali 40.','Banyak siswa yang suka voli = seluruh siswa dikurangi yang suka bola dan basket.']];
 const RB=['Hebat, jawabanmu tepat!','Keren! Kamu makin jago pecahan!','Luar biasa, pertahankan!','Mantap! Sedikit lagi sampai tujuan!','Juara! Terus semangat!'],RS=['Tidak apa-apa, kesalahan adalah bagian dari belajar. Kamu pasti bisa!','Hampir! Baca pembahasannya, kamu pasti paham.','Jangan menyerah, setiap petualang pernah tersesat!','Semangat! Lihat langkahnya, kamu bisa!','Tetap semangat, kamu sudah semakin dekat!'];
 const MP=[[8,78],[26,42],[44,76],[61,32],[78,66],[92,22]],MI=['🏕️','🏝️','🌋','🏴‍☠️','🐉','💎'];
 const mpH=k=>`<div class=mp><svg viewBox="0 0 100 100" preserveAspectRatio=none style="position:absolute;inset:0;width:100%;height:100%"><polyline points="${MP.map(p=>p.join(',')).join(' ')}" fill=none stroke="#fff" stroke-width=1.5 stroke-dasharray="3 2"/></svg>${MP.map((p,i)=>`<div class="nd ${i<=k?'dn':''}" style="left:${p[0]}%;top:${p[1]}%">${MI[i]}</div>`).join('')}<div class=pn id=pn style="left:${MP[k][0]}%;top:${MP[k][1]}%">${PN()}</div></div>`;
-function quiz(L,t,g){G.k=0;G.L=L;G.t=t;G.r=g;G.ok=0;G.tr=0;G.redo=S.done>G.i;G.rsk=0;if(!G.redo){S.pts=S.pts||{};S.skor-=S.pts[G.i]||0;S.pts[G.i]=0}qn()}
-function qn(){const q=G.L[G.k],g=G.r,o=g?q[2]:q[1],gv=0;$('#bd').innerHTML=`<details><summary>📌 Rangkuman Hubungan Pecahan</summary>${RK()}</details>${g?mpH(G.k):`<div class=bar><i style="width:${G.k/G.L.length*100}%"></i></div>`}<h3>${g?q[0]+' · ':''}Soal ${G.k+1}/${G.L.length}</h3><p>${fx(g?q[1]:q[0])}</p>`+(gv?`<div class=gv><b>📋 Angka yang muncul di soal</b> <small>(analisis dulu: ketuk angka yang kamu perlukan)</small><br>${q[4].map(x=>`<span onclick="this.classList.toggle('on');SND.tick()">${fx(x)}</span>`).join('')}</div>`:'')+(g?mzGen(o):o.map((x,i)=>`<button class=opt onclick=pk(${i},this)>${fx(x)}</button>`).join(''))+`<div id=fb></div>`;if(g){SND.go();const z=$('#mz');let sx,sy;z.ontouchstart=e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY};z.ontouchend=e=>{const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.max(Math.abs(dx),Math.abs(dy))<20)return;Math.abs(dx)>Math.abs(dy)?mv(dx>0?1:-1,0):mv(0,dy>0?1:-1)}}}
+function quiz(L,t,g){G.k=0;G.L=L;G.t=t;G.r=g;G.ok=0;G.tr=0;G.redo=S.done>G.i;G.rsk=0;G.att=0;G.hint='';if(!G.redo){S.pts=S.pts||{};S.skor-=S.pts[G.i]||0;S.pts[G.i]=0}qn()}
+function qn(){const q=G.L[G.k],g=G.r,o=g?q[2]:q[1],gv=0;$('#bd').innerHTML=`<details><summary>📌 Rangkuman Hubungan Pecahan</summary>${RK()}</details>${g?mpH(G.k):`<div class=bar><i style="width:${G.k/G.L.length*100}%"></i></div>`}<h3>${g?q[0]+' · ':''}Soal ${G.k+1}/${G.L.length}</h3><p>${fx(g?q[1]:q[0])}</p>`+(g&&G.hint?`<div class=bx>🔎 <b>Petunjuk:</b> ${fx(G.hint)}</div>`:'')+(gv?`<div class=gv><b>📋 Angka yang muncul di soal</b> <small>(analisis dulu: ketuk angka yang kamu perlukan)</small><br>${q[4].map(x=>`<span onclick="this.classList.toggle('on');SND.tick()">${fx(x)}</span>`).join('')}</div>`:'')+(g?mzGen(o):o.map((x,i)=>`<button class=opt onclick=pk(${i},this)>${fx(x)}</button>`).join(''))+`<div id=fb></div>`;if(g){SND.go();stopRun();swp($('#mz').closest('.mzr'))}}
 function mkMaze(W,H){const c=Array.from({length:W*H},()=>({n:1,e:1,s:1,w:1})),par=Array(W*H).fill(-1),vis=new Set([0]),st=[0];while(st.length){const x=st[st.length-1],cx=x%W,cy=(x/W)|0,nb=[];if(cy>0&&!vis.has(x-W))nb.push([x-W,'n','s']);if(cx<W-1&&!vis.has(x+1))nb.push([x+1,'e','w']);if(cy<H-1&&!vis.has(x+W))nb.push([x+W,'s','n']);if(cx>0&&!vis.has(x-1))nb.push([x-1,'w','e']);if(!nb.length){st.pop();continue}const[y,a,b]=nb[Math.floor(Math.random()*nb.length)];c[x][a]=0;c[y][b]=0;par[y]=x;vis.add(y);st.push(y)}return{c,par}}
 function mzGen(o){const sm=window.matchMedia&&matchMedia('(max-width:640px)').matches,W=sm?6:8,H=sm?5:6;let M,P=[];for(let t=0;t<80;t++){M=mkMaze(W,H);const par=M.par,dep=i=>{let d=0;while(par[i]>=0){i=par[i];d++}return d},anc=(a,b)=>{while(par[b]>=0){b=par[b];if(b==a)return true}return false},idx=[...Array(W*H).keys()].filter(i=>i).sort((a,b)=>dep(b)-dep(a));for(const md of[3,2]){P=[];for(const i of idx){if(P.length>=o.length)break;if(P.every(j=>!anc(j,i)&&!anc(i,j)&&Math.abs(j%W-i%W)+Math.abs(((j/W)|0)-((i/W)|0))>=md))P.push(i)}if(P.length>=o.length)break}if(P.length>=o.length)break}
 P.sort(()=>Math.random()-.5);G.mz={W,H,c:M.c};G.mo=P;G.mp=[0,0];G.lock=0;
-return `<div class=bx>🧭 Gerakkan pion ${PN()} dengan <b>panah keyboard</b> (atau W A S D), <b>tombol panah</b> di samping labirin, atau <b>geser layar</b>. Temukan huruf jawabanmu di labirin!</div><div class=lg>${o.map((x,i)=>`<span><b class=ob>${'ABCD'[i]}</b> ${fx(x)}</span>`).join('')}</div><div class=mzr><div class=mzw><div class=mz id=mz style="--W:${W}">${M.c.map((k,i)=>`<div class="mc${k.n?' n':''}${k.w?' w':''}">${P.includes(i)?`<b class=ob>${'ABCD'[P.indexOf(i)]}</b>`:''}</div>`).join('')}<div class=pn2 id=pn2 style="left:0;top:0">${PN()}</div></div></div><div class=dp><button class=u onpointerdown="hd(0,-1)" onpointerup=hs() onpointerleave=hs()>⬆️</button><button class=l onpointerdown="hd(-1,0)" onpointerup=hs() onpointerleave=hs()>⬅️</button><button class=r onpointerdown="hd(1,0)" onpointerup=hs() onpointerleave=hs()>➡️</button><button class=d onpointerdown="hd(0,1)" onpointerup=hs() onpointerleave=hs()>⬇️</button></div></div>`}
-function mv(dx,dy){if(G.lock||!G.mz)return;const{W,H,c}=G.mz;let[x,y]=G.mp;const k=c[y*W+x],dr=dx>0?'e':dx<0?'w':dy>0?'s':'n';if(k[dr]){SND.bump();return}x+=dx;y+=dy;G.mp=[x,y];$('#pn2').style.left=x/W*100+'%';$('#pn2').style.top=y/H*100+'%';SND.walk(G.stp=(G.stp||0)+1);const o=G.mo.indexOf(y*W+x);if(o>=0){G.lock=1;hs();pk(o)}}
+return `<div class=bx>🧭 Gerakkan pion ${PN()} dengan <b>panah keyboard</b> (atau W A S D), <b>tombol panah</b> di samping labirin, atau <b>geser jarimu di area labirin</b> (geser cepat = meluncur sampai ujung lorong). Temukan huruf jawabanmu di labirin!</div><div class=lg>${o.map((x,i)=>`<span><b class=ob>${'ABCD'[i]}</b> ${fx(x)}</span>`).join('')}</div><div class=mzr><div class=mzw><div class=mz id=mz style="--W:${W}">${M.c.map((k,i)=>`<div class="mc${k.n?' n':''}${k.w?' w':''}">${P.includes(i)?`<b class=ob>${'ABCD'[P.indexOf(i)]}</b>`:''}</div>`).join('')}<div class=pn2 id=pn2 style="left:0;top:0">${PN()}</div></div></div><div class=dp><button class=u onpointerdown="hd(0,-1)" onpointerup=hs() onpointerleave=hs()>⬆️</button><button class=l onpointerdown="hd(-1,0)" onpointerup=hs() onpointerleave=hs()>⬅️</button><button class=r onpointerdown="hd(1,0)" onpointerup=hs() onpointerleave=hs()>➡️</button><button class=d onpointerdown="hd(0,1)" onpointerup=hs() onpointerleave=hs()>⬇️</button></div></div>`}
+function mv(dx,dy){if(G.lock||!G.mz)return false;const{W,H,c}=G.mz;let[x,y]=G.mp;const k=c[y*W+x],dr=dx>0?'e':dx<0?'w':dy>0?'s':'n';if(k[dr]){SND.bump();return false}x+=dx;y+=dy;G.mp=[x,y];$('#pn2').style.left=x/W*100+'%';$('#pn2').style.top=y/H*100+'%';SND.walk(G.stp=(G.stp||0)+1);const o=G.mo.indexOf(y*W+x);if(o>=0){G.lock=1;hs();stopRun();pk(o);return false}return true}
+function stopRun(){clearInterval(G.run)}
+function runDir(dx,dy){stopRun();const go=()=>{if(!mv(dx,dy)){stopRun();return}const{W,c}=G.mz,k=c[G.mp[1]*W+G.mp[0]];if(['n','e','s','w'].filter(d=>!k[d]).length!=2)stopRun()};go();G.run=setInterval(go,110)}
+function swp(el){if(!el)return;let sx,sy,ox,oy,t0,act=0;const th=()=>{const m=$('#mz');return Math.max(16,(m?m.clientWidth/G.mz.W:40)*.5)};
+el.addEventListener('touchstart',e=>{if(e.target.closest&&e.target.closest('button'))return;const t=e.touches[0];sx=ox=t.clientX;sy=oy=t.clientY;t0=Date.now();act=1;stopRun()},{passive:true});
+el.addEventListener('touchmove',e=>{if(!act)return;e.preventDefault();const t=e.touches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.max(Math.abs(dx),Math.abs(dy))<th())return;Math.abs(dx)>Math.abs(dy)?mv(dx>0?1:-1,0):mv(0,dy>0?1:-1);sx=t.clientX;sy=t.clientY},{passive:false});
+el.addEventListener('touchend',e=>{if(!act)return;act=0;const t=e.changedTouches[0],dx=t.clientX-ox,dy=t.clientY-oy;if(Date.now()-t0<280&&Math.max(Math.abs(dx),Math.abs(dy))>=40)Math.abs(dx)>Math.abs(dy)?runDir(dx>0?1:-1,0):runDir(0,dy>0?1:-1)});
+el.addEventListener('touchcancel',()=>{act=0})}
 function hd(dx,dy){mv(dx,dy);hs();G.hi=setInterval(()=>mv(dx,dy),170)}
 function hs(){clearInterval(G.hi)}
 document.addEventListener('keydown',e=>{if(!G.mz||G.lock)return;const m={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0],w:[0,-1],s:[0,1],a:[-1,0],d:[1,0],W:[0,-1],S:[0,1],A:[-1,0],D:[1,0]}[e.key];if(m){e.preventDefault();mv(m[0],m[1])}});
 function pk(i,b){const q=G.L[G.k],g=G.r,c=g?q[3]:q[2],pm=g?q[4]:q[3],ok=i==c,O=document.querySelectorAll('.opt');O.forEach(x=>x.disabled=true);b&&b.classList.add(ok?'ok':'no');if(!ok&&!g)O[c].classList.add('ok');ok?(SND.yay(),burst(1)):(SND.wah(),burst(0));
 api({a:'ans',...U,tahap:G.t+(G.redo?' (ulang)':''),soal:g?q[1]:q[0],jawab:(g?q[2]:q[1])[i],benar:ok?'Ya':'Tidak'});log('Jawab '+G.t,ok?'benar':'salah');
-if(ok){const pt=G.tr?5:10;if(G.redo)G.rsk+=pt;else{S.skor+=pt;S.pts[G.i]+=pt}if(!G.tr)G.ok++;if(g){const p=MP[G.k+1];setTimeout(()=>{const n=$('#pn');if(n){n.style.left=p[0]+'%';n.style.top=p[1]+'%'}},300)}}else G.tr=1;
-$('#fb').innerHTML=`<div class=bx>${ok?'🎉':'💭'} <b>${(ok?RB:RS)[G.k%5]}</b><br>💡 <b>Pembahasan:</b> ${fx(pm)}</div>`+(ok||!g?`<button onclick=nq()>${G.k+1<G.L.length?'Lanjut ▶':'Selesai'}</button>`:`<button onclick=qn()>🔁 Coba lagi</button>`);$('#fb').scrollIntoView({behavior:'smooth',block:'nearest'})}
-function nq(){G.k++;G.tr=0;if(G.k<G.L.length)return qn();SND.win();const g=G.r;$('#bd').innerHTML=`${g?mpH(G.k):''}<div class=ct><div style="font-size:4rem">${g?'🏆':G.ok>=G.L.length*.6?'🏆':'💪'}</div><h2>${g?'Kamu sampai di Harta Karun! 🎉':'Benar '+G.ok+' dari '+G.L.length}</h2><p>${g?'Benar langsung: '+G.ok+' dari 5 misi. ':''}${G.redo?'Skor pengerjaan ulang ⭐'+G.rsk+'. Nilai awalmu ⭐'+S.skor+' tidak berubah.':'Skor total ⭐'+S.skor}</p><p><b>${G.ok>=G.L.length*.6?'Luar biasa! Kamu petualang pecahan sejati!':'Kamu sudah berusaha keras. Ulangi rangkuman, lalu kamu pasti makin jago!'}</b></p></div>`;gate(1)}
+if(ok){const pt=G.tr?5:10;if(G.redo)G.rsk+=pt;else{S.skor+=pt;S.pts[G.i]+=pt}if(!G.tr)G.ok++;if(g){const p=MP[G.k+1];setTimeout(()=>{const n=$('#pn');if(n){n.style.left=p[0]+'%';n.style.top=p[1]+'%'}},300)}}else{G.tr=1;if(g){G.att=(G.att||0)+1;G.hint=GH[G.k][Math.min(G.att-1,GH[G.k].length-1)]}}
+$('#fb').innerHTML=`<div class=bx>${ok?'🎉':'💭'} <b>${(ok?RB:RS)[G.k%5]}</b><br>${!ok&&g?`🔎 <b>Petunjuk:</b> ${fx(G.hint)}<br><small>Pembahasan lengkap muncul setelah jawabanmu benar.</small>`:`💡 <b>Pembahasan:</b> ${fx(pm)}`}</div>`+(ok||!g?`<button onclick=nq()>${G.k+1<G.L.length?'Lanjut ▶':'Selesai'}</button>`:`<button onclick=qn()>🔁 Coba lagi</button>`);$('#fb').scrollIntoView({behavior:'smooth',block:'nearest'})}
+function nq(){G.k++;G.tr=0;G.att=0;G.hint='';if(G.k<G.L.length)return qn();SND.win();const g=G.r;$('#bd').innerHTML=`${g?mpH(G.k):''}<div class=ct><div style="font-size:4rem">${g?'🏆':G.ok>=G.L.length*.6?'🏆':'💪'}</div><h2>${g?'Kamu sampai di Harta Karun! 🎉':'Benar '+G.ok+' dari '+G.L.length}</h2><p>${g?'Benar langsung: '+G.ok+' dari 5 misi. ':''}${G.redo?'Skor pengerjaan ulang ⭐'+G.rsk+'. Nilai awalmu ⭐'+S.skor+' tidak berubah.':'Skor total ⭐'+S.skor}</p><p><b>${G.ok>=G.L.length*.6?'Luar biasa! Kamu petualang pecahan sejati!':'Kamu sudah berusaha keras. Ulangi rangkuman, lalu kamu pasti makin jago!'}</b></p></div>`;gate(1)}
 function s3(){quiz(LT,'Latihan',0)}
 const PIONS=['🚶','🧙','🦸','🥷','🐱','🐶','🦊','🚀'],PN=()=>S.pion||'🚶';
 function s4(){$('#bd').innerHTML=`<div class=ct><h3>🎒 Pilih pionmu dulu!</h3><p>Pion ini akan menemanimu menjelajahi peta dan labirin.</p><div class=pks>${PIONS.map(p=>`<button class="pkb ${PN()==p?'on':''}" onclick="sp('${p}',this)">${p}</button>`).join('')}</div><button onclick="SND.go();quiz(GM,'Petualangan',1)">🗺️ Mulai Petualangan ▶</button></div>`}
